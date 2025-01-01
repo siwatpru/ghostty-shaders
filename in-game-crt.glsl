@@ -2,7 +2,7 @@
 // Author: sarphiv
 // License: CC BY-NC-SA 4.0
 // Description:
-//   Shader for ghostty that is focused on being usable while looking like a stylized CRT terminal in a modern video game.
+//   Shader for ghostty that is focussed on being usable while looking like a stylized CRT terminal in a modern video game.
 //   I know a tiny bit about shaders, and nothing about GLSL,
 //   so this is a Frakenstein's monster combination of other shaders together with a lot of surgery.
 //   On the bright side, i've cleaned up the body parts and surgery a lot.
@@ -269,7 +269,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float noiseContent = smoothstep(0.4, 0.6, fract(sin(uv.x * uv.y * (1.0-uv.x) * (1.0-uv.y) * iTime * 4096.0) * 65536.0));
     float noiseUniform = smoothstep(0.4, 0.6, fract(sin(uv.x * uv.y * (1.0-uv.x) * (1.0-uv.y) * iTime * 8192.0) * 65536.0));
     fragColor.rgb *= clamp(noiseContent + 1.0 - NOISE_CONTENT_STRENGTH, 0.0, 1.0);
-    fragColor.rgb = clamp(fragColor.rgb + noiseUniform * NOISE_UNIFORM_STRENGTH, 0.0, 1.0);// NOTE: At this point, RGB values may be above 1.00
+    fragColor.rgb = clamp(fragColor.rgb + noiseUniform * NOISE_UNIFORM_STRENGTH, 0.0, 1.0);
 
 
     // NOTE: At this point, RGB values are again within [0, 1]
