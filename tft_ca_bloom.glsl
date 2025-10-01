@@ -1,4 +1,4 @@
-// tft_clean.glsl  —  TFT scanlines + mild CA + light noise (no warp, no glitch)
+// tft_ca_bloom.glsl  —  TFT scanlines + mild CA + light noise (no warp, no glitch)
 
 // Shadertoy uniforms expected: iResolution, iTime, iChannel0, iFrame
 
