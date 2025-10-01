@@ -6,7 +6,7 @@
 float resolution      = 4.0;   // TFT "pixel" size
 float strength        = 0.4;   // scanline/grille strength (0..1)
 float ca_offset_px    = 2.0;   // chromatic aberration offset in pixels (0=off)
-float noise_amp       = 0.04;  // film grain intensity (0..~0.08 is subtle)
+float noise_amp       = 0.03;  // film grain intensity (0..~0.08 is subtle)
 float bloom_general   = 0.2;  // overall bloom intensity (all pixels)
 float bloom_selective = 0.1;   // selective bloom for bright areas (text)
 /******************************/
@@ -43,10 +43,10 @@ float lum(vec3 c) {
   return 0.299 * c.r + 0.587 * c.g + 0.114 * c.b;
 }
 
-// Simple 2D hash for grain (stable, cheap)
+// Animated TV static noise
 float hash21(vec2 p) {
-    // jitter per-frame a little to animate the grain
-    p += float(iFrame) * 0.1234;
+    // Use iTime for continuous animation like TV static
+    p += iTime * 10.0;
     return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
 }
 
